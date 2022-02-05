@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package fibonacci;
+
+option go_package = "pkg/fibonacci_api";
+
+service FibonacciSlice{
+  rpc Fibonacci(FibonacciRequest) returns (FibonacciResponse) {};
+}
+
+message FibonacciRequest{
+  int64 x = 1;
+  int64 y = 2;
+}
+
+message FibonacciResponse{
+  repeated int64 slice = 1;
+}
