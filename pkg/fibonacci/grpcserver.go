@@ -10,11 +10,11 @@ type GRPCServer struct {
 }
 
 func createFibonacciInterval(x, y int64) []int64 {
-	slice := make([]int64, y)
+	slice := make([]int64, y+1)
 	var i int64
 	for i = 0; i <= y; i++ {
 		if i == 0 || i == 1 {
-			slice[i] = 0
+			slice[i] = i
 		} else {
 			slice[i] = slice[i-1] + slice[i-2]
 		}
