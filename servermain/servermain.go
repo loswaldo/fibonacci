@@ -1,11 +1,11 @@
 package main
 
 import (
+	"github.com/loswaldo/fibonacci/pkg/fibonacci"
+	"github.com/loswaldo/fibonacci/pkg/fibonacci_api"
 	"google.golang.org/grpc"
 	"log"
 	"net"
-	"pkg/fibonacci_api/pkg/fibonacci_api/pkg/fibonacci"
-	"pkg/fibonacci_api/pkg/fibonacci_api/pkg/fibonacci_api"
 )
 
 //import "google.golang.org/grpc"

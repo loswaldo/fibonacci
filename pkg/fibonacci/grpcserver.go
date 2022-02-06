@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"pkg/fibonacci_api/pkg/fibonacci_api/pkg/fibonacci_api"
+	"github.com/loswaldo/fibonacci/pkg/fibonacci_api"
 )
 
 type GRPCServer struct {

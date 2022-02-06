@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
+	"github.com/loswaldo/fibonacci/pkg/fibonacci_api"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
-	"pkg/fibonacci_api/pkg/fibonacci_api/pkg/fibonacci_api"
 )
 
 func main() {
