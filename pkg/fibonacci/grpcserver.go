@@ -2,6 +2,7 @@ package fibonacci
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"pkg/fibonacci_api/pkg/fibonacci_api/pkg/fibonacci_api"
 )
@@ -26,5 +27,9 @@ func createFibonacciInterval(x, y int64) []int64 {
 func (s *GRPCServer) Fibonacci(ctx context.Context, req *fibonacci_api.FibonacciRequest) (*fibonacci_api.FibonacciResponse, error) {
 	x := req.GetX()
 	y := req.GetY()
+	if x > y {
+		/*todo: error*/
+		return nil, errors.New("wrong indexes: x must be less than y")
+	}
 	return &fibonacci_api.FibonacciResponse{Slice: createFibonacciInterval(x, y)}, nil
 }
