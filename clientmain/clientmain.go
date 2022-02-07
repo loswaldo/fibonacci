@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"github.com/loswaldo/fibonacci/pkg/fibonacci_api"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -40,7 +39,6 @@ func makeFibonacciHandler(w http.ResponseWriter, r *http.Request) {
 			log.Fatal(err)
 		}
 		w.Header().Set("Content-Type", "application/json")
-		fmt.Println(string(b))
 		_, err = w.Write(b)
 		if err != nil {
 			log.Fatal(err)

@@ -3,7 +3,6 @@ package fibonacci
 import (
 	"context"
 	"errors"
-	"fmt"
 	"github.com/loswaldo/fibonacci/pkg/fibonacci_api"
 )
 
@@ -20,7 +19,6 @@ func createFibonacciInterval(x, y int64) []int64 {
 			slice[i] = slice[i-1] + slice[i-2]
 		}
 	}
-	fmt.Println(slice)
 	return slice[x:]
 }
 
