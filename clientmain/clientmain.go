@@ -48,7 +48,7 @@ func makeFibonacciHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func fibonacciHandler(w http.ResponseWriter, r *http.Request) {
-	html, err := template.ParseFiles("/home/shaurmyashka/fibonacci/clientmain/index.html")
+	html, err := template.ParseFiles("./index.html")
 	if err != nil {
 		log.Fatal(err)
 	}
