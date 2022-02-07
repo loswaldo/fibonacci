@@ -14,5 +14,5 @@ message FibonacciRequest{
 }
 
 message FibonacciResponse{
-  repeated int64 slice = 1;
+  repeated uint64 slice = 1;
 }

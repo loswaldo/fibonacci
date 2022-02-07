@@ -13,7 +13,7 @@ import (
 )
 
 type message struct {
-	Seq []int64
+	Seq []uint64
 }
 
 func makeFibonacciHandler(w http.ResponseWriter, r *http.Request) {
@@ -58,7 +58,7 @@ func fibonacciHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func makeFibonacciRequest(x, y int64) ([]int64, error) {
+func makeFibonacciRequest(x, y int64) ([]uint64, error) {
 	conn, err := grpc.Dial("127.0.0.1:8080", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatal(err)
