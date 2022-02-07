@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci sequence</title>
+    <style>
+        .form {
+            font-family: sans-serif;
+            padding-top: 50px;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .output {
+            font-weight: bolder;
+            max-width: 100%;
+        }
+        .error {
+            text-align: center;
+            color: firebrick;
+        }
+    </style>
+</head>
+<body>
+<form class="form">
+    <label>
+        <span>X value</span>
+        <input type="number" name="x" required placeholder="x value">
+    </label>
+    <label>
+        <span>Y value</span>
+        <input type="number" name="y" required>
+    </label>
+<div> <input type="submit"></div>
+<div class="output"></div>
+<div class="error"></div>
+</form>
+<script>
+    const form = document.querySelector('.form');
+    const output = document.querySelector('.output');
+    const error = document.querySelector('.error');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const x = formData.get('x');
+        const y = formData.get('y');
+        try {
+            const data = await fetch(`http://localhost:8081/newfibonacci?x=${x}&y=${y}`).then(resp => {
+                if (resp.status !== 200) {
+                    throw new Error(resp.statusText)
+                }
+                return resp.json()
+            });
+            output.innerHTML = data.Seq.join(', ');
+            error.innerHTML = ''
+        } catch (e) {
+            output.innerHTML = '';
+            error.innerHTML = e.message;
+        }
+    })
+</script>
+</body>
+</html>
